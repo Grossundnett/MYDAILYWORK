@@ -1,0 +1,57 @@
+Code:
+
+questions = {
+    "What is the capital of France?": {
+        "options": ["Paris", "London", "Berlin", "Madrid"],
+        "correct_answer": "Paris"
+    },
+    "Who painted the Mona Lisa?": {
+        "options": ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"],
+        "correct_answer": "Leonardo da Vinci"
+    },
+    # Add more questions here
+}
+
+score = 0
+correct_answers = 0
+
+print("Welcome to the Quiz Game!")
+print("Rules:")
+print("- You will be asked multiple-choice questions.")
+print("- Each correct answer earns you a point.")
+print("- Let's begin!")
+
+for question, data in questions.items():
+    print(question)
+    for i, option in enumerate(data["options"]):
+        print(f"{i+1}. {option}")
+
+    user_answer = input("Enter your answer (1, 2, 3, or 4): ")
+
+    if user_answer == str(data["options"].index(data["correct_answer"]) + 1):
+        print("Correct!")
+        score += 1
+        correct_answers += 1
+    else:
+        print("Incorrect. The correct answer is:", data["correct_answer"])
+
+    print()
+
+final_score = (score / len(questions)) * 100
+print("Your final score is:", final_score, "out of 100")
+
+if final_score >= 70:
+    print("Excellent job!")
+elif final_score >= 50:
+    print("Good job!")
+else:
+    print("Better luck next time!")
+
+play_again = input("Do you want to play again? (yes/no): ")
+if play_again.lower() == "yes":
+    # Reset variables and start the quiz again
+    score = 0
+    correct_answers = 0
+    print("\nStarting a new game!")
+    # ... rest of the code
+	
